@@ -16,3 +16,5 @@ export async function postJSON(endpoint, data) {
   });
   return res.json();
 }
+
+const BASE_URL = "/api";
