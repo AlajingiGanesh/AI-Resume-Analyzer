@@ -34,6 +34,7 @@ git clone https://github.com/AlajingiGanesh/AI-Resume-Analyzer.git
 cd AI-Resume-Analyzer
 
 ### 2. Backend setup
+```bash
 pip install -r requirements.txt
 python -m uvicorn backend.main:app --reload
 
