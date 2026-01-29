@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>🤖 AI Resume Analyzer</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:,">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+</head>
+
+<body>
+
+    <div id="toast" class="toast"></div>
+
+    <div class="container">
+        <h1>AI Resume Analyzer</h1>
+        <p class="subtitle">Smart career insights powered by AI</p>
+        <div id="modeText" style="margin-top:10px; opacity:0.7;">
+            Current Mode: None
+        </div>
+
+
+        <div id="uploadSection" class="glass-card">
+            <div class="upload-box">
+                <label>Upload Resume (PDF)</label>
+                <input type="file" id="resumeFile">
+            </div>
+
+            <div class="jd-box">
+                <label>Job Description</label>
+                <textarea id="jobDesc" placeholder="Paste job description here..."></textarea>
+            </div>
+            <button id="analyzeBtn" onclick="setMode('analyze'); analyzeResume()">
+                Analyze Resume
+            </button>
+
+            <button id="rewriteBtn" onclick="setMode('rewrite'); rewriteResume()">
+                Rewrite Resume
+            </button>
+
+            <button id="roadmapBtn" onclick="setMode('roadmap'); getRoadmap()">
+                Get Skill Roadmap
+            </button>
+
+            <button id="interviewBtn" onclick="setMode('interview'); startInterview()">
+                Start Mock Interview
+            </button>
+
+            <button id="copyBtn" onclick="copyResume()">
+                Copy Resume
+            </button>
+
+            <button id="downloadBtn" onclick="downloadPDF()">
+                Download PDF Report
+            </button>
+
+
+            <div id="loader" class="loader hidden">
+                <span></span><span></span><span></span>
+                <p id="loaderText">Analyzing with AI...</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Previous Reports</h3>
+            <ul id="historyList"></ul>
+        </div>
+
+        <!-- ANALYSIS RESULT -->
+        <div id="pdfContent" class="pdf-mode">
+        <div id="result" class="result hidden print-area">
+            <div class="score-section">
+                <div class="score-circle">
+                    <span id="scoreText">0</span>/100
+                </div>
+                <div class="progress">
+                    <div id="progressBar"></div>
+                </div>
+                <p id="matchText"></p>
+            </div>
+
+            <div class="card">
+                <h3>Skill Gap Analysis</h3>
+                <ul id="skillGaps"></ul>
+            </div>
+
+            <div class="card">
+                <h3>ATS Optimization Tips</h3>
+                <ul id="atsTips"></ul>
+            </div>
+
+            <div class="card">
+                <h3>Suggestions</h3>
+                <ul id="suggestions"></ul>
+            </div>
+        </div>
+
+
+        <!-- PDF EXPORT TEMPLATE -->
+        <div id="pdfExport" class="pdf hidden">
+            <h1>AI Resume Analyzer Report</h1>
+
+            <h2 id="pdfScore"></h2>
+            <p id="pdfMatch"></p>
+
+            <h3>Skill Gaps</h3>
+            <ul id="pdfSkillGaps"></ul>
+
+            <h3>ATS Tips</h3>
+            <ul id="pdfAtsTips"></ul>
+
+            <h3>Suggestions</h3>
+            <ul id="pdfSuggestions"></ul>
+
+            <h3>Final Resume</h3>
+            <pre id="pdfFinalResume"></pre>
+        </div>
+
+
+        <!-- REWRITE RESULT -->
+        <div id="rewriteResult" class="result hidden print-area">
+            <div class="card">
+                <h2>AI Rewritten Resume</h2>
+
+                <h3>Professional Summary</h3>
+                <p id="newSummary"></p>
+
+                <h3>Experience</h3>
+                <ul id="newExperience"></ul>
+
+                <h3>Skills</h3>
+                <ul id="newSkills"></ul>
+
+                <h3>Final Resume</h3>
+                <div id="finalResume" class="resume-box"></div>
+            </div>
+        </div>
+
+        <!-- ROADMAP RESULT -->
+        <div id="roadmapResult" class="result hidden print-area">
+            <div class="card">
+                <h2>Skill Learning Roadmap</h2>
+
+                <h3>Short Term (0–1 month)</h3>
+                <ul id="shortTerm"></ul>
+
+                <h3>Medium Term (1–3 months)</h3>
+                <ul id="mediumTerm"></ul>
+
+                <h3>Long Term (3–6 months)</h3>
+                <ul id="longTerm"></ul>
+            </div>
+        </div>
+        <!-- INTERVIEW RESULT -->
+        <div id="interviewSection" class="result hidden">
+            <div class="card">
+                <h2>Mock Interview</h2>
+                <p id="questionType"></p>
+                <h3 id="questionText"></h3>
+
+                <div id="optionsBox"></div>
+
+                <textarea id="userAnswer" placeholder="Type your answer here..."></textarea>
+
+                <button onclick="nextQuestion()">Next</button>
+            </div>
+
+            <div id="finalResult" class="card hidden">
+                <h2>Interview Completed</h2>
+                <p id="motivationLine"></p>
+
+                <h3>Correct Answers</h3>
+                <div id="answerSheet" class="print-area"></div>
+            </div>
+        </div>
+
+        <button id="finishBtn" class="hidden" onclick="onFinishInterviewClick()">
+            Finish Interview
+        </button>
+
+    </div>
+    <script type="module" src="js/main.js"></script>
+
+
+
+<!-- MOTIVATION MODAL -->
+<div id="motivationModal" class="modal hidden">
+    <div class="modal-content">
+        <h2 id="modalTitle"></h2>
+        <p id="modalText"></p>
+        <button onclick="closeModal()">Continue</button>
+    </div>
+</div>
+
+
+<!-- AI ORB -->
+<div id="aiOrb" onclick="activateAI()">🤖</div>
+
+<!-- ROBO LOADER -->
+<div id="roboLoader" class="robo-loader hidden">
+    <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_kkflmtur.json" background="transparent" speed="1"
+        style="width:200px;height:200px" loop autoplay>
+    </lottie-player>
+    <p id="roboText">JARVIS initializing...</p>
+</div>
+
+<!-- CHAT WINDOW -->
+<div id="jarvisChat" class="jarvis-chat hidden">
+    <div class="jarvis-header">
+        <h3>JARVIS AI</h3>
+        <button onclick="toggleTheme()">🌓</button>
+        <button onclick="startVoice()">🎤</button>
+        <button onclick="closeChat()">✖</button>
+    </div>
+
+    <div id="chatBody" class="chat-body">
+        <div class="bot-msg">Hello 👋 I am JARVIS.</div>
+    </div>
+
+    <div class="chat-input">
+        <input id="chatInput" placeholder="Ask..." />
+        <button onclick="sendMessage()">➤</button>
+    </div>
+</div>
+
+
+</body>
+
+</html>

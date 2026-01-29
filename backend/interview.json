@@ -1,0 +1,18 @@
+{
+  "questions": [
+    {
+      "type": "technical",
+      "question": "Explain SQL joins"
+    },
+    {
+      "type": "hr",
+      "question": "Why should we hire you?"
+    }
+  ],
+  "answers": [
+    {
+      "question": "Explain SQL joins",
+      "answer": "SQL joins are used to..."
+    }
+  ]
+}
