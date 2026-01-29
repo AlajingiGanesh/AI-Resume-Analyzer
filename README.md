@@ -79,12 +79,18 @@ AI-Resume-Analyzer/
 ```bash
 git clone https://github.com/AlajingiGanesh/AI-Resume-Analyzer.git
 cd AI-Resume-Analyzer
+
+---
+
 2. Backend setup
 pip install -r requirements.txt
 python -m uvicorn backend.main:app --reload
 Backend runs at:
 
 http://127.0.0.1:8000
+
+---
+
 3. Frontend setup
 Open in browser:
 
@@ -94,16 +100,7 @@ Deployed on Vercel:
 https://ai-resume-analyzer.vercel.app
 (Replace with your actual final link)
 
-📸 Screenshots
-(Add screenshots later)
-
-Resume Analysis
-
-AI Rewrite
-
-Mock Interview
-
-PDF Report
+---
 
 🎯 Use Cases
 Students preparing for placements
@@ -118,6 +115,9 @@ Internship applicants
 Create a .env file in backend:
 
 GROQ_API_KEY=your_api_key_here
+
+---
+
 📈 Future Enhancements
 User authentication
 
@@ -127,27 +127,17 @@ Resume version comparison
 
 Multi-language support
 
+---
+
 👨‍💻 Author
 Ganesh Alajingi
 Full Stack Developer
 GitHub: https://github.com/AlajingiGanesh
+
+---
 
 📜 License
 This project is licensed under the Apache 2.0 License.
 
 
 ---
-
-## Why this README is strong (for recruiters)
-
-This format shows:
-
-- You know **product documentation**
-- You think in **features, architecture, and deployment**
-- Not just "college project", but **real-world system**
-
-This alone increases:
-> perceived project quality by **5x**.
-
-Tomorrow when you apply, this README will carry your resume even before they open it.
-::contentReference[oaicite:0]{index=0}
