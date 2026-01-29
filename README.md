@@ -33,8 +33,7 @@ It simulates how Applicant Tracking Systems (ATS) and recruiters evaluate resume
 git clone https://github.com/AlajingiGanesh/AI-Resume-Analyzer.git
 cd AI-Resume-Analyzer
 
-### 2. Backend setup
-```bash
+**### 2. Backend setup**
 pip install -r requirements.txt
 python -m uvicorn backend.main:app --reload
 
