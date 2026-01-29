@@ -17,4 +17,4 @@ export async function postJSON(endpoint, data) {
   return res.json();
 }
 
-const BASE_URL = "/api";
+const BASE_URL = "https://ai-resume-analyzer-seven-rust.vercel.app/";
