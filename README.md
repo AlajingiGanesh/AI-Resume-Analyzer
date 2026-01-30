@@ -34,11 +34,9 @@ Backend API:
 - FastAPI (Python)
 - Groq LLM API
 - Render (cloud deployment)
-
----
-```
+  
 ## 🏗️ Project Architecture
-
+```
 AI-Resume-Analyzer/
 │
 ├── backend/
@@ -95,14 +93,15 @@ Just open:
 index.html
 in your browser.
 
-📌 Deployment
+```
+### 📌 Deployment
 Frontend deployed on GitHub Pages
 
 Backend deployed on Render
 
 Environment variables securely managed on Render
 
-📈 Future Enhancements
+###  📈 Future Enhancements
 User authentication (login/register)
 
 Resume history storage
@@ -113,7 +112,7 @@ Payment integration for premium features
 
 Resume templates
 
-👨‍💻 Author
+### 👨‍💻 Author
 Ganesh Alajingi
 Full Stack Developer | AI Enthusiast
 
@@ -121,6 +120,3 @@ GitHub: https://github.com/AlajingiGanesh
 
 ⭐ If you like this project
 Give it a star ⭐ on GitHub – it really helps!
-
-
----
