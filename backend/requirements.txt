@@ -1,6 +1,9 @@
-streamlit
+fastapi
+uvicorn
+python-multipart
 pdfminer.six
 sentence-transformers
 scikit-learn
 groq
 python-dotenv
+requests
