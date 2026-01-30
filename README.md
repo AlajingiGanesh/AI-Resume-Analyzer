@@ -36,9 +36,7 @@ Backend API:
 - Render (cloud deployment)
 
 ---
-
-
-
+```
 ## 🏗️ Project Architecture
 
 AI-Resume-Analyzer/
@@ -61,9 +59,7 @@ AI-Resume-Analyzer/
 ├── index.html
 ├── style.css
 └── README.md
-
-
-
+```
 ---
 
 ## ⚙️ How It Works
