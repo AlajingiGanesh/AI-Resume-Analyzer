@@ -1,4 +1,4 @@
-const API_BASE = "https://ai-resume-backend.vercel.app";
+const API_BASE = "https://ai-resume-analyzer-icxy.onrender.com";
 
 export async function postForm(endpoint, formData) {
   const res = await fetch(API_BASE + endpoint, {
