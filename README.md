@@ -37,6 +37,8 @@ Backend API:
 
 ---
 
+
+
 ## 🏗️ Project Architecture
 
 AI-Resume-Analyzer/
@@ -59,6 +61,7 @@ AI-Resume-Analyzer/
 ├── index.html
 ├── style.css
 └── README.md
+
 
 
 ---
