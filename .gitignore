@@ -1,10 +1,4 @@
-# Secrets
+myenv/
 .env
-
-# Python junk
 __pycache__/
 *.pyc
-
-# OS
-.DS_Store
-Thumbs.db
