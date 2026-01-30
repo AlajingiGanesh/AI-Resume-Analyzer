@@ -1,58 +1,43 @@
 # 🤖 AI Resume Analyzer
 
-An intelligent full-stack web application that analyzes resumes using AI, provides skill gap insights, rewrites resumes, generates learning roadmaps, and conducts mock interviews.
+An intelligent full-stack web application that helps job seekers analyze, improve, and optimize their resumes using AI.
 
-Built to help students and job seekers improve their resumes and prepare for placements.
+Live Demo:  
+👉 https://alajingiganesh.github.io/AI-Resume-Analyzer/
+
+Backend API:  
+👉 https://ai-resume-analyzer-icxy.onrender.com/docs
 
 ---
 
 ## 🚀 Features
 
-- **Resume Analysis**
-  - AI-based resume scoring
-  - Match percentage with job description
-  - Skill gaps, ATS tips, and improvement suggestions
-
-- **AI Resume Rewriter**
-  - Professional summary generation
-  - Experience and skills optimization
-  - Final polished resume output
-
-- **Skill Learning Roadmap**
-  - Short-term, medium-term, and long-term learning paths
-
-- **Mock Interview Module**
-  - MCQ + descriptive questions
-  - Instant feedback and score
-  - Final answer review
-
-- **PDF Export**
-  - Download analysis and rewritten resume as PDF
-
-- **AI Chatbot (JARVIS)**
-  - Career guidance assistant
+- 📄 Upload resume (PDF)
+- 🧠 AI-powered resume analysis
+- ✍️ Resume rewriting with professional tone
+- 📊 Skill gap & ATS optimization tips
+- 🗺️ Personalized skill learning roadmap
+- 🎤 AI mock interview with scoring
+- 📜 PDF report export
+- 🤖 Built-in AI chatbot (JARVIS)
 
 ---
 
-## 🧠 Tech Stack
+## 🛠️ Tech Stack
 
 ### Frontend
-- HTML5  
-- CSS3 (Glassmorphism UI)  
-- JavaScript (Vanilla)
+- HTML, CSS, JavaScript
+- Glassmorphism UI
+- GitHub Pages (hosting)
 
 ### Backend
 - FastAPI (Python)
 - Groq LLM API
-- PDFMiner
-- Sentence Transformers
-
-### Deployment
-- Vercel (Full-stack)
+- Render (cloud deployment)
 
 ---
 
-## 📂 Project Structure
+## 🏗️ Project Architecture
 
 AI-Resume-Analyzer/
 │
@@ -60,84 +45,83 @@ AI-Resume-Analyzer/
 │ ├── main.py
 │ ├── routes/
 │ ├── services/
-│ └── utils/
+│ └── requirements.txt
+│
+├── js/
+│ ├── main.js
+│ ├── api.js
+│ ├── analyze.js
+│ ├── rewrite.js
+│ ├── roadmap.js
+│ ├── interview.js
+│ └── chat.js
 │
 ├── index.html
 ├── style.css
-├── js/
-│
-├── requirements.txt
-├── vercel.json
 └── README.md
 
 
 ---
 
-## ⚙️ Local Setup
+## ⚙️ How It Works
 
-### 1. Clone the repository
-```bash
-git clone https://github.com/AlajingiGanesh/AI-Resume-Analyzer.git
-cd AI-Resume-Analyzer
-
----
-
-2. Backend setup
-pip install -r requirements.txt
-python -m uvicorn backend.main:app --reload
-Backend runs at:
-
-http://127.0.0.1:8000
+1. User uploads a resume and job description.
+2. Frontend sends data to FastAPI backend.
+3. Backend processes PDF and sends prompt to Groq AI.
+4. AI response is returned and displayed in UI.
+5. User can export results as a PDF.
 
 ---
 
-3. Frontend setup
-Open in browser:
+## 🔐 Environment Setup (Backend)
 
-index.html
-🌐 Live Demo
-Deployed on Vercel:
-https://ai-resume-analyzer.vercel.app
-(Replace with your actual final link)
-
----
-
-🎯 Use Cases
-Students preparing for placements
-
-Freshers improving resumes
-
-Career switchers
-
-Internship applicants
-
-🔒 Environment Variables
-Create a .env file in backend:
+Create a `.env` file or set environment variable:
 
 GROQ_API_KEY=your_api_key_here
 
+
 ---
 
+## ▶️ Run Locally
+
+### Backend
+
+```bash
+cd backend
+pip install -r requirements.txt
+uvicorn main:app --reload
+Frontend
+Just open:
+
+index.html
+in your browser.
+
+📌 Deployment
+Frontend deployed on GitHub Pages
+
+Backend deployed on Render
+
+Environment variables securely managed on Render
+
 📈 Future Enhancements
-User authentication
+User authentication (login/register)
 
-Resume history dashboard
-
-Resume version comparison
+Resume history storage
 
 Multi-language support
 
----
+Payment integration for premium features
+
+Resume templates
 
 👨‍💻 Author
 Ganesh Alajingi
-Full Stack Developer
+Full Stack Developer | AI Enthusiast
+
 GitHub: https://github.com/AlajingiGanesh
 
----
-
-📜 License
-This project is licensed under the Apache 2.0 License.
+⭐ If you like this project
+Give it a star ⭐ on GitHub – it really helps!
 
 
 ---
